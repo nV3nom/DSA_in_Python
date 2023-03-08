@@ -11,6 +11,7 @@ Reversing the binary form we get,
 10000000000000000000000000000000,
 whose decimal value is 2147483648.
 '''
+#method 1
 class Solution:
     def reversedBits(self, X):
         # Store the input number in a variable
@@ -34,3 +35,22 @@ class Solution:
         
         # Return the final reversed integer value
         return revdigit
+    
+#method 2 editorial
+class Solution:
+    def reversedBits(self, X):
+        
+        # Change the Integer to it's Binary Form
+        s=bin(X) 
+        s=s[2:]
+        
+        y=32-len(s)
+        
+        s='0'*y+s     # Adding leading zeroes to fill 32 bits
+        
+        #Reverse the binary
+        s=s[::-1]
+        
+        ans=int(s,2)     # Change binary to it's Integer Form.
+        
+        return ans
